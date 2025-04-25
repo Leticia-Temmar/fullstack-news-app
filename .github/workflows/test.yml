@@ -1,0 +1,33 @@
+name: Run Backend Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: fastapi-news-project
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install pipenv
+      run: pip install pipenv
+
+    - name: Install dependencies
+      run: pipenv install --dev
+
+    - name: Run pytest
+      run: pipenv run pytest
