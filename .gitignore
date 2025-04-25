@@ -1,0 +1,44 @@
+# Frontend Next.js (dans nextjs-dashboard)
+next-js-project/nextjs-dashboard/node_modules/
+next-js-project/nextjs-dashboard/.next/
+next-js-project/nextjs-dashboard/out/
+next-js-project/nextjs-dashboard/build/
+next-js-project/nextjs-dashboard/coverage/
+
+# Bases de données locales frontend
+next-js-project/nextjs-dashboard/db.sqlite.db
+next-js-project/nextjs-dashboard/db.sqlite3.db
+next-js-project/nextjs-dashboard/todo.sqlite3
+
+# Fichiers d'environnement frontend
+next-js-project/nextjs-dashboard/.env.local
+next-js-project/nextjs-dashboard/.env
+
+# Lock files inutiles (comme tu es sur npm)
+next-js-project/nextjs-dashboard/pnpm-lock.yaml
+
+# Config perso VS Code
+next-js-project/nextjs-dashboard/.vscode/
+
+
+# Backend FastAPI
+fastapi-news-project/.env
+fastapi-news-project/__pycache__/
+fastapi-news-project/.pytest_cache/
+fastapi-news-project/.mypy_cache/
+fastapi-news-project/*.sqlite3
+fastapi-news-project/*.sqlite3.db
+fastapi-news-project/.coverage
+fastapi-news-project/.ruff_cache/
+fastapi-news-project/.migrations/  # si tu utilises des migrations
+
+# OS files
+.DS_Store
+
+# Environnements virtuels (au cas où pipenv le place dans le projet)
+fastapi-news-project/fastapi-news-project/
+
+# Coverage & cache (tests et linting)
+.pytest_cache/
+.cache/
+.venv/

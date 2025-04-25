@@ -1,0 +1,26 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+fastapi = "*"
+sqlalchemy = "*"
+sqlmodel = "*"
+asyncpg = "*"
+python-dotenv = "*"
+passlib = "*"
+bcrypt = "==4.0.1"
+python-jose = "*"
+python-multipart = "*"
+aiosqlite = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+
+[dev-packages]
+black = "*"
+pytest = "*"
+pytest-asyncio = "*"
+httpx = "*"
+
+[requires]
+python_version = "3.13"
