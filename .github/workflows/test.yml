@@ -23,9 +23,14 @@ jobs:
       with:
         python-version: '3.13'
     
-
     - name: Install pipenv
       run: pip install pipenv
+
+    - name: Check Python version (ensure 3.13)
+      run: python --version
+
+    - name: Set Pipenv to use the current Python
+      run: pipenv --python $(which python3)
 
     - name: Install dependencies
       run: pipenv install --dev
