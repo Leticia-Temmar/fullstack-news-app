@@ -35,5 +35,8 @@ jobs:
     - name: Install dependencies
       run: pipenv install --dev
 
+    - name: Set DATABASE_URL for tests
+      run: echo "DATABASE_URL=sqlite+aiosqlite:///./test.db" >> $GITHUB_ENV
+
     - name: Run pytest
       run: pipenv run pytest
