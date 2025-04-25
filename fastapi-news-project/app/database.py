@@ -11,10 +11,11 @@ load_dotenv(find_dotenv())
 
 # Récupération sécurisée de la DATABASE_URL
 DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
-    raise ValueError(" DATABASE_URL est vide ou introuvable !")
 if not DATABASE_URL.startswith("postgresql+asyncpg"):
-    raise ValueError(f"Mauvais driver détecté : {DATABASE_URL}")
+    # Autoriser SQLite en environnement CI (GitHub Actions définit toujours CI=true)
+    if not (DATABASE_URL.startswith("sqlite") and os.getenv("CI") == "true"):
+        raise ValueError(f"Mauvais driver détecté : {DATABASE_URL}")
+
 
 # Création du moteur asynchrone
 engine: AsyncEngine = create_async_engine(DATABASE_URL, echo=False)
