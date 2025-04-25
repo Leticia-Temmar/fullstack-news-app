@@ -35,8 +35,12 @@ jobs:
     - name: Install dependencies
       run: pipenv install --dev
 
-    - name: Set DATABASE_URL for tests
-      run: echo "DATABASE_URL=sqlite+aiosqlite:///./test.db" >> $GITHUB_ENV
+    - name: Set environment variables for tests
+      run: |
+        echo "DATABASE_URL=sqlite+aiosqlite:///./test.db" >> $GITHUB_ENV
+        echo "SECRET_KEY=TestSecretKey" >> $GITHUB_ENV
+        echo "ALGORITHM=HS256" >> $GITHUB_ENV
+        echo "ACCESS_TOKEN_EXPIRE_MINUTES=60" >> $GITHUB_ENV
 
     - name: Run pytest
       run: pipenv run pytest
